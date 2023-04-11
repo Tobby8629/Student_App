@@ -1,4 +1,6 @@
-class Person
+require './decorate.rb'
+
+class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age
 
@@ -19,5 +21,9 @@ class Person
     true
   end
 
-  private :is_Of_Age
+  def correct_name
+    @name
+  end
+
+  private :of_age?
 end
