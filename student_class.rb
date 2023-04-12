@@ -1,9 +1,15 @@
-class Student < Person
-  attr_accessor :classroom
+require './person_class'
 
-  def initialize(classroom, age, name = 'unknown', parent_permission: true)
+class Student < Person
+  attr_reader :classroom
+
+  def initialize(age, name = 'unknown', parent_permission: true)
     super(age, name, parent_permission)
+  end
+
+  def classroom=(classroom)
     @classroom = classroom
+    classroom.add_students(self) unless classroom.students.include?(self)
   end
 
   def play_hooky

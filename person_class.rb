@@ -1,4 +1,5 @@
 require './decorate'
+require './rental'
 
 class Person < Nameable
   attr_reader :id
@@ -10,6 +11,7 @@ class Person < Nameable
     @age = age
     @parent_permission = parent_permission
     @id = Random.rand(1..1000)
+    @rentals = []
   end
 
   def of_age?
@@ -24,6 +26,10 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def add_rentals(date, book)
+    Rental.new(date, self, book)
   end
 
   private :of_age?
