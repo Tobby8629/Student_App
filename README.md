@@ -69,75 +69,31 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
-```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
-```
---->
+  git clone https://github.com/Tobby8629/Student_App.git
+
 
 ### Install
 
 Install this project with:
-
-<!--
-Example command:
-
-```sh
   cd my-project
-  gem install
-```
---->
+  gem install bundler
 
-### Usage
-
-To run the project, execute the following command:
-
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
 ```sh
   bin/rails test test/models/article_test.rb
-```
---->
 
-### Deployment
 
-You can deploy this project using:
 
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -181,7 +137,7 @@ Feel free to check the [issues page](../../issues/).
 
 > Write a message to encourage readers to support your project
 
-If you like this project...
+If you like this project, please you give the project some stars. Thank you
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
