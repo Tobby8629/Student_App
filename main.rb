@@ -3,23 +3,23 @@ require './app'
 @main = Main.new
 
 def menu
-    my_lambda = lambda {
-      puts 'welcome to school library!'
-      puts ' '
-      puts 'please choose an option by entering a number:'
-      puts '1 - list all books'
-      puts '2 - list all people'
-      puts '3 - create a person'
-      puts '4 - create a book'
-      puts '5 - create a rental'
-      puts '6 - list all rentals for a given person id'
-      puts '7 - Exit'
-    }
-    my_lambda.call
-    gets.chomp
-  end
+  my_lambda = lambda {
+    puts 'welcome to school library!'
+    puts ' '
+    puts 'please choose an option by entering a number:'
+    puts '1 - list all books'
+    puts '2 - list all people'
+    puts '3 - create a person'
+    puts '4 - create a book'
+    puts '5 - create a rental'
+    puts '6 - list all rentals for a given person id'
+    puts '7 - Exit'
+  }
+  my_lambda.call
+  gets.chomp
+end
 
- loop do
+loop do
   input = menu
   case input
   when '1'
@@ -41,4 +41,3 @@ def menu
     puts 'input valid number, choose a number between 1-7'
   end
 end
-
