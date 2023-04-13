@@ -55,7 +55,6 @@ class Main
     end
     book = gets.chomp.to_i
 
-
     puts 'select a book from the following lists of book by number(not id)'
     @people.each_with_index do |person, index|
       puts "#{index})[#{person.class.name}] name: #{person.name}, age: #{person.age}, id:#{person.id}"
