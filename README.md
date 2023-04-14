@@ -27,7 +27,7 @@
 
 > Describe your project in 1 or 2 sentences.
 
-**[LIBRARY_APP]**student library app  is a ruby backend project that take records of all data flow in the library which include Books, students, teachers and rental history. this project is built using ruby.
+**[LIBRARY_APP]**student library app  is a ruby backend project that take records of all data flow in the library which include Books, students, teachers and rental history. this project is built using ruby. To to start up the App in the command prompt, run the following command [Ruby main.rb]
 
 <img src="./schema diagram.png" style= "width:500px; height:300px" align="center">
 
@@ -87,10 +87,10 @@ Install this project with:
 
 ### Run tests
 
-To run tests, run the following command:
+To run application, run the following command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+  ruby main.rb
 
 
 
