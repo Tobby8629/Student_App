@@ -66,7 +66,7 @@ class Main
 
     rental = Rental.new(date, @people[person], @books[book])
 
-    @rentals.push(rental)
+    @rentals.ph(rental)
 
     puts 'Rental created successfully'
   end
