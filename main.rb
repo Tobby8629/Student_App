@@ -3,7 +3,8 @@ require './app'
 @main = Main.new
 
 def menu
-  my_lambda = lambda {
+
+  my_lambda = lamba {
     puts 'welcome to school library!'
     puts ' '
     puts 'please choose an option by entering a number:'
