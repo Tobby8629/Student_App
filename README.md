@@ -109,6 +109,12 @@ To run application, run the following command:
 - Twitter: [@Tobby_samuels](https://twitter.com/Tobby_samuels)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/samuel-popoola-tobby/)
 
+👤 **Emeka Emmanuel Ugboaja**
+
+- GitHub: [EmekaEmmanuel](https://github.com/EmekaEmmanuel)
+- Twitter: [@emekaekeoha](https://twitter.com/emekaekeoha)
+- LinkedIn: [emeka-ugboaja](https://www.linkedin.com/in/emeka-ugboaja)
+
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
