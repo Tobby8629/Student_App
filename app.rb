@@ -3,6 +3,7 @@ require './person_class'
 require './student_class'
 require './teacher_class'
 require './create_person'
+require 'json'
 
 class Main
   def initialize()
@@ -46,7 +47,7 @@ class Main
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [input the number]: '
     selection = gets.chomp
-    run = Option.new(selection,@people)
+    run = Option.new(selection, @people)
     run.check
   end
 
@@ -82,9 +83,86 @@ class Main
     end
   end
 
-  
+  def preserve_peopledata
+    return unless @people != []
+
+    json_data = JSON.generate(@people.map do |person|
+                                if person.instance_of?(::Teacher)
+                                  { name: person.name,
+                                    age: person.age,
+                                    id: person.id,
+                                    class: person.class.name,
+                                    specialization: person.specialization }
+                                else
+                                  {
+                                    name: person.name,
+                                    age: person.age,
+                                    id: person.id,
+                                    class: person.class.name
+                                  }
+                                end
+                              end)
+    File.write('./data/people.json', json_data)
+  end
+
+  def retrieve_peopledata
+    File.open('./data/people.json', 'r') do |file|
+      data = file.read
+      if data != ''
+        parsed_data = JSON.parse(data)
+        @people = parsed_data.map do |dat|
+          if dat['class'] == 'Student'
+            Student.new(dat['age'], dat['name'], dat['id'])
+          else
+            Teacher.new(dat['specialization'], dat['age'], dat['name'], dat['id'])
+          end
+        end
+      end
+    end
+  end
+
+  def preserve_book
+    return unless @books != []
+
+    json_data = JSON.generate(@books.map do |book|
+      { title: book.title, author: book.author }
+    end)
+    File.write('./data/book.json', json_data)
+  end
+
+  def retrieve_bookdata
+    File.open('./data/book.json', 'r') do |file|
+      data = file.read
+      if data != ''
+        parsed_data = JSON.parse(data)
+        @books = parsed_data.map do |dat|
+          Book.new(dat['title'], dat['author'])
+        end
+      end
+    end
+  end
+
+  def preserve_rentalsdata
+    return unless @rentals != []
+
+    json_data = JSON.generate(@rentals.map do |rent|
+      { date: rent.date,
+        book: { title: rent.book.title, author: rent.book.author },
+        person: { age: rent.person.age, name: rent.person.name, id: rent.person.id } }
+    end)
+    File.write('./data/rental.json', json_data)
+  end
+
+  def retrieve_rentaldata
+    File.open('./data/rental.json', 'r') do |file|
+      data = file.read
+      if data != ''
+        parsed_data = JSON.parse(data)
+        @rentals = parsed_data.map do |dat|
+          Rental.new(dat['date'], Person.new(dat['person']['age'], dat['person']['name'], dat['person']['id']),
+                     Book.new(dat['book']['title'], dat['book']['author']))
+        end
+      end
+    end
+  end
 end
-
-
-
-
