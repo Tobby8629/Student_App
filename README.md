@@ -88,8 +88,6 @@ Install this project with:
 ### Run tests
 
 To run application, run the following command:
-
-```sh
   ruby main.rb
 
 
