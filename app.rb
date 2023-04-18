@@ -2,6 +2,7 @@ require './book'
 require './person_class'
 require './student_class'
 require './teacher_class'
+require './create_person'
 
 class Main
   def initialize()
@@ -45,7 +46,8 @@ class Main
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [input the number]: '
     selection = gets.chomp
-    check(selection)
+    run = Option.new(selection,@people)
+    run.check
   end
 
   def rental
@@ -80,37 +82,9 @@ class Main
     end
   end
 
-  def check(selection)
-    case selection
-    when '1'
-      stu_person
-    when '2'
-      teacher_person
-    end
-  end
-
-  def stu_person
-    print 'Age: '
-    age = gets.chomp
-    print 'Name: '
-    name = gets.chomp
-    print 'Has parent permission? [Y/N]: '
-    permission = gets.chomp.downcase
-    person = Student.new(age, name)
-    person.parent_permission = false if permission == 'n'
-    @people.push(person)
-    puts 'Person created successfully'
-  end
-
-  def teacher_person
-    print 'Age: '
-    age = gets.chomp
-    print 'Name: '
-    name = gets.chomp
-    print 'specialization :'
-    specialization = gets.chomp
-    person = Teacher.new(specialization, age, name)
-    @people.push(person)
-    puts 'Person created successfully'
-  end
+  
 end
+
+
+
+
