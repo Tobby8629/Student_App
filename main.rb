@@ -1,6 +1,9 @@
 require './app'
 
 @main = Main.new
+@main.run_people
+@main.run_book
+@main.run_rents
 
 def menu
   my_lambda = lambda {
@@ -36,6 +39,9 @@ loop do
     @main.list_rental
   when '7'
     puts 'thank you for using the school library'
+    @main.preserve_book
+    @main.preserve_peopledata
+    @main.preserve_rentalsdata
     break
   else
     puts 'input valid number, choose a number between 1-7'

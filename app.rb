@@ -2,12 +2,17 @@ require './book'
 require './person_class'
 require './student_class'
 require './teacher_class'
+require './create_person'
+require './retrieve_data/load_book'
+require './retrieve_data/load_people'
+require './retrieve_data/load_rental'
+require 'json'
 
 class Main
   def initialize()
-    @books = []
-    @people = []
-    @rentals = []
+    @books = load_book
+    @people = load_people
+    @rentals = load_rental
   end
 
   def show_book
@@ -45,7 +50,8 @@ class Main
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [input the number]: '
     selection = gets.chomp
-    check(selection)
+    run = Option.new(selection, @people)
+    run.check
   end
 
   def rental
@@ -80,37 +86,81 @@ class Main
     end
   end
 
-  def check(selection)
-    case selection
-    when '1'
-      stu_person
-    when '2'
-      teacher_person
+  def preserve_peopledata
+    return unless @people == []
+
+    json_data = JSON.generate(@people.map do |person|
+                                if person.instance_of?(::Teacher)
+                                  { name: person.name,
+                                    age: person.age,
+                                    id: person.id,
+                                    class: person.class.name,
+                                    specialization: person.specialization }
+                                else
+                                  {
+                                    name: person.name,
+                                    age: person.age,
+                                    id: person.id,
+                                    class: person.class.name
+                                  }
+                                end
+                              end)
+    File.write('./data/people.json', json_data)
+  end
+
+  def run_people
+    File.open('./data/people.json', 'r') do |file|
+      data = file.read
+      if data != ''
+        puts
+        puts 'Lists of current library users'
+        show_people
+      end
     end
   end
 
-  def stu_person
-    print 'Age: '
-    age = gets.chomp
-    print 'Name: '
-    name = gets.chomp
-    print 'Has parent permission? [Y/N]: '
-    permission = gets.chomp.downcase
-    person = Student.new(age, name)
-    person.parent_permission = false if permission == 'n'
-    @people.push(person)
-    puts 'Person created successfully'
+  def preserve_book
+    return unless @books == []
+
+    json_data = JSON.generate(@books.map do |book|
+      { title: book.title, author: book.author }
+    end)
+    File.write('./data/book.json', json_data)
   end
 
-  def teacher_person
-    print 'Age: '
-    age = gets.chomp
-    print 'Name: '
-    name = gets.chomp
-    print 'specialization :'
-    specialization = gets.chomp
-    person = Teacher.new(specialization, age, name)
-    @people.push(person)
-    puts 'Person created successfully'
+  def run_book
+    File.open('./data/book.json', 'r') do |file|
+      data = file.read
+      if data != ''
+        puts
+        puts "List of available books\n"
+        show_book
+      end
+    end
+  end
+
+  def preserve_rentalsdata
+    return unless @rentals == []
+
+    json_data = JSON.generate(@rentals.map do |rent|
+      { date: rent.date,
+        book: { title: rent.book.title, author: rent.book.author },
+        person: { age: rent.person.age, name: rent.person.name, id: rent.person.id } }
+    end)
+    File.write('./data/rental.json', json_data)
+  end
+
+  def run_rents
+    File.open('./data/rental.json', 'r') do |file|
+      data = file.read
+      if data != ''
+        puts
+        puts 'current number of rents'
+        @rentals.each do |rent|
+          puts "Date: #{rent.date}, Book \"#{rent.book.title}\" by #{rent.book.author}"
+          puts
+        end
+      end
+    end
   end
 end

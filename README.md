@@ -29,9 +29,8 @@
 
 **[LIBRARY_APP]**student library app  is a ruby backend project that take records of all data flow in the library which include Books, students, teachers and rental history. this project is built using ruby. To to start up the App in the command prompt, run the following command [Ruby main.rb]
 
-<img src="./schema diagram.png" style= "width:500px; height:300px" align="center">
 
-## 🛠 Built With <a name="built-with"> postgressSQL</a>
+## 🛠 Built With <a name="built-with"> RUBY</a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -73,10 +72,11 @@ In order to run this project you need:
 ### Setup
 
 Clone this repository to your desired folder:
-
+```sh
   cd my-folder
   git clone https://github.com/Tobby8629/Student_App.git
-
+  
+```
 
 ### Install
 
@@ -86,12 +86,10 @@ Install this project with:
 
 
 ### Run tests
-
+```
 To run application, run the following command:
-
-```sh
-  ruby main.rb
-
+ruby main.rb
+```
 
 
 
@@ -108,6 +106,12 @@ To run application, run the following command:
 - GitHub: [@Tobby8629](https://github.com/Tobby8629)
 - Twitter: [@Tobby_samuels](https://twitter.com/Tobby_samuels)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/samuel-popoola-tobby/)
+
+👤 **Emeka Emmanuel Ugboaja**
+
+- GitHub: [EmekaEmmanuel](https://github.com/EmekaEmmanuel)
+- Twitter: [@emekaekeoha](https://twitter.com/emekaekeoha)
+- LinkedIn: [emeka-ugboaja](https://www.linkedin.com/in/emeka-ugboaja)
 
 <!-- FUTURE FEATURES -->
 
