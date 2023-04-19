@@ -10,9 +10,9 @@ require 'json'
 
 class Main
   def initialize()
-    @books = load_book
-    @people = load_people
-    @rentals = load_rental
+    @books = load_book || []
+    @people = load_people || []
+    @rentals = load_rental || []
   end
 
   def show_book
@@ -87,7 +87,7 @@ class Main
   end
 
   def preserve_peopledata
-    return unless @people == []
+    return unless @people != []
 
     json_data = JSON.generate(@people.map do |person|
                                 if person.instance_of?(::Teacher)
@@ -120,7 +120,7 @@ class Main
   end
 
   def preserve_book
-    return unless @books == []
+    return unless @books != []
 
     json_data = JSON.generate(@books.map do |book|
       { title: book.title, author: book.author }
@@ -140,7 +140,7 @@ class Main
   end
 
   def preserve_rentalsdata
-    return unless @rentals == []
+    return unless @rentals != []
 
     json_data = JSON.generate(@rentals.map do |rent|
       { date: rent.date,
