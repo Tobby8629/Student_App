@@ -3,13 +3,16 @@ require './person_class'
 require './student_class'
 require './teacher_class'
 require './create_person'
+require './retrieve_data/load_book'
+require './retrieve_data/load_people'
+require './retrieve_data/load_rental'
 require 'json'
 
 class Main
   def initialize()
-    @books = []
-    @people = []
-    @rentals = []
+    @books = load_book
+    @people = load_people
+    @rentals = load_rental
   end
 
   def show_book
@@ -84,7 +87,7 @@ class Main
   end
 
   def preserve_peopledata
-    return unless @people != []
+    return unless @people == []
 
     json_data = JSON.generate(@people.map do |person|
                                 if person.instance_of?(::Teacher)
@@ -105,24 +108,19 @@ class Main
     File.write('./data/people.json', json_data)
   end
 
-  def retrieve_peopledata
+  def run_people
     File.open('./data/people.json', 'r') do |file|
       data = file.read
       if data != ''
-        parsed_data = JSON.parse(data)
-        @people = parsed_data.map do |dat|
-          if dat['class'] == 'Student'
-            Student.new(dat['age'], dat['name'], dat['id'])
-          else
-            Teacher.new(dat['specialization'], dat['age'], dat['name'], dat['id'])
-          end
-        end
+        puts
+        puts 'Lists of current library users'
+        show_people
       end
     end
   end
 
   def preserve_book
-    return unless @books != []
+    return unless @books == []
 
     json_data = JSON.generate(@books.map do |book|
       { title: book.title, author: book.author }
@@ -130,20 +128,19 @@ class Main
     File.write('./data/book.json', json_data)
   end
 
-  def retrieve_bookdata
+  def run_book
     File.open('./data/book.json', 'r') do |file|
       data = file.read
       if data != ''
-        parsed_data = JSON.parse(data)
-        @books = parsed_data.map do |dat|
-          Book.new(dat['title'], dat['author'])
-        end
+        puts
+        puts "List of available books\n"
+        show_book
       end
     end
   end
 
   def preserve_rentalsdata
-    return unless @rentals != []
+    return unless @rentals == []
 
     json_data = JSON.generate(@rentals.map do |rent|
       { date: rent.date,
@@ -153,14 +150,15 @@ class Main
     File.write('./data/rental.json', json_data)
   end
 
-  def retrieve_rentaldata
+  def run_rents
     File.open('./data/rental.json', 'r') do |file|
       data = file.read
       if data != ''
-        parsed_data = JSON.parse(data)
-        @rentals = parsed_data.map do |dat|
-          Rental.new(dat['date'], Person.new(dat['person']['age'], dat['person']['name'], dat['person']['id']),
-                     Book.new(dat['book']['title'], dat['book']['author']))
+        puts
+        puts 'current number of rents'
+        @rentals.each do |rent|
+          puts "Date: #{rent.date}, Book \"#{rent.book.title}\" by #{rent.book.author}"
+          puts
         end
       end
     end

@@ -1,9 +1,9 @@
 require './app'
 
 @main = Main.new
-@main.retrieve_peopledata
-@main.retrieve_bookdata
-@main.retrieve_rentaldata
+@main.run_people
+@main.run_book
+@main.run_rents
 
 def menu
   my_lambda = lambda {
