@@ -3,6 +3,9 @@ require_relative '../classroom'
 require_relative '../decorate'
 require_relative '../person_class'
 require_relative '../rental'
+require_relative '../student_class'
+require_relative '../teacher_class'
+require_relative '../classroom'
 
 describe Book do
   before :each do
@@ -58,3 +61,25 @@ describe Person do
     expect(@person).to be_an_instance_of Person
   end
 end
+
+describe Student do
+  student = Student.new(25,"Tobby")
+  it "should be an instance Student" do
+    expect(student).to be_an_instance_of Student  
+  end 
+end
+
+describe Teacher do
+  teacher = Teacher.new("medicine",25,"Tobby")
+  it "should be an instance Teacher" do
+    expect(teacher).to be_an_instance_of Teacher  
+  end 
+end
+
+describe Classroom do
+  classroom = Classroom.new(200)
+  it "should be an instance Classroom" do
+    expect(classroom).to be_an_instance_of Classroom  
+  end 
+end
+
