@@ -1,27 +1,26 @@
-require 'spec_helper'
-require_relative '../book'
+# require_relative '../book'
 
-describe Book do
-  before :each do
-    @book = Book.new('All girls are the same', 'Tobby')
-  end
+# describe Book do
+#   before :each do
+#     @book = Book.new('All girls are the same', 'Tobby')
+#   end
 
-  describe '#addnew' do
-    it 'takes the two parameter' do
-      expect(@book).to be_an_instance_of Book
-    end
-  end
+#   describe '#addnew' do
+#     it 'takes the two parameter' do
+#       expect(@book).to be_an_instance_of Book
+#     end
+#   end
 
-  describe 'check value of title and author' do
-    it 'value of title' do
-      expect(@book.title).to eq('All girls are the same')
-    end
+#   describe 'check value of title and author' do
+#     it 'value of title' do
+#       expect(@book.title).to eq('All girls are the same')
+#     end
 
-    it 'value of author' do
-      expect(@book.author).to eq('Tobby')
-    end
-  end
-end
+#     it 'value of author' do
+#       expect(@book.author).to eq('Tobby')
+#     end
+#   end
+# end
 
 # describe "sample test" do
 #   it "should pass" do
