@@ -135,7 +135,6 @@ If you like this project, please you give the project some stars. Thank you
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-
 I would like to appreciate microverse 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -145,6 +144,5 @@ I would like to appreciate microverse
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
