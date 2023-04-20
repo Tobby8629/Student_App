@@ -32,8 +32,6 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
 <details>
 <summary>stack</summary>
   <ul>
@@ -44,8 +42,6 @@
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
 
 - **[create record of library user]**
 - **[create record of books in library]**
