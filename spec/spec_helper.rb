@@ -31,7 +31,6 @@ describe Book do
     it 'should have the rental instance' do
       date = '22/22/22'
       person = Person.new(22, 'Tobby')
-      puts @book.add_rentals(date, person)
       expect(@book.add_rentals(date, person)).to be_an_instance_of Rental
     end
   end
