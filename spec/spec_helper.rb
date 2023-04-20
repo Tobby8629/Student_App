@@ -69,5 +69,16 @@ describe Student do
   end 
 end
 
+describe Teacher do
+  teacher = Teacher.new("medicine",25,"Tobby")
+  it "should be an instance Teacher" do
+    expect(teacher).to be_an_instance_of Teacher  
+  end 
+end
 
-
+describe Classroom do
+  classroom = Classroom.new(200)
+  it "should be an instance Classroom" do
+    expect(classroom).to be_an_instance_of Classroom  
+  end
+end
