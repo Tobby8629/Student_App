@@ -23,41 +23,11 @@ describe Book do
   end
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # describe "sample test" do
 #   it "should pass" do
 #     expect(true).to eq(true)
 #   end
 # end
-
-
-
-
-
-
-
-
-
-
-
 
 # describe Book do
 #   # before :each do
